@@ -1,18 +1,18 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
-  "name": "43b60ada4608ec250d6e",
+  "name": "4ff0338f193a30ce1700",
   "position": {
     "x": 230.13123359580052,
-    "y": 119.26509186351706,
-    "z": 0,
+    "y": 430.86614173228338,
+    "z": 1,
     "height": 263.72703412073491,
     "width": 737.42782152230973
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -26,13 +26,8 @@
                 }
               },
               "queryRef": "sales_table.Month",
-              "nativeQueryRef": "Month",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
+              "nativeQueryRef": "Month"
+            },
             {
               "field": {
                 "Aggregation": {
@@ -43,40 +38,17 @@
                           "Entity": "sales_table"
                         }
                       },
-                      "Property": "Sale Amount"
+                      "Property": "Profit"
                     }
                   },
                   "Function": 0
                 }
               },
-              "queryRef": "Sum(sales_table.Sale Amount)",
-              "nativeQueryRef": "Sum of Sale Amount"
+              "queryRef": "Sum(sales_table.Profit)",
+              "nativeQueryRef": "Sum of Profit"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Aggregation": {
-                "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "sales_table"
-                      }
-                    },
-                    "Property": "Sale Amount"
-                  }
-                },
-                "Function": 0
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "drillFilterOtherVisuals": true
@@ -84,7 +56,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "399a72d890a968085010",
+        "name": "9cac2fb8e0161aedb68b",
         "field": {
           "Column": {
             "Expression": {
@@ -98,7 +70,7 @@
         "type": "Categorical"
       },
       {
-        "name": "8b60231fe0078e66dc20",
+        "name": "c3e9b3ca302290d21430",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -108,7 +80,7 @@
                     "Entity": "sales_table"
                   }
                 },
-                "Property": "Sale Amount"
+                "Property": "Profit"
               }
             },
             "Function": 0
