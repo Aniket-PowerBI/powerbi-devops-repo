@@ -1,0 +1,57 @@
+table customer_table
+	lineageTag: c57d6ec1-a8ef-492b-86cc-3fec6444d011
+
+	column 'Customer Name'
+		dataType: string
+		lineageTag: 731bb281-a6ad-4719-b9af-e57f2893f3d1
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer City'
+		dataType: string
+		lineageTag: e2a45331-d8ed-47b9-a391-19b09d02c9fd
+		summarizeBy: none
+		sourceColumn: Customer City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Name'
+		dataType: string
+		lineageTag: db2d02d3-8de1-4fa3-8a4a-993b77090d44
+		summarizeBy: none
+		sourceColumn: Product Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: 2f1ce884-a0ae-4497-9e02-01351c233a29
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: int64
+		formatString: 0
+		lineageTag: 77cc6495-b174-44f1-8ecf-dc62a2930487
+		summarizeBy: sum
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition customer_table = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCkrMVdJRCijNSwVSzolFQNIrMQ9ImhoYGCjF6kQrBWdUgtX4luYmJWYCGU6lxUDSLTUJSBoawJVlliQCBTwqU1KLEpMSU4Ds4OT8/JJKkFawuUamUKXuEKVOiXnpiTn5RSCbnTKzU+FWG4PNjAUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Customer Name" = _t, #"Customer City" = _t, #"Product Name" = _t, Month = _t, Amount = _t]),
+				    #"Changed Type1" = Table.TransformColumnTypes(Source,{{"Amount", Int64.Type}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
